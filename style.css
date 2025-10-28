@@ -66,6 +66,21 @@ header img{
     }
     
 }
-#ficção{
-    background-color: azure;
+
+.card{
+    border: solid 2px rgb(97, 35, 126);
+    width: 300px;
+    height: 500px;
+    background-color: rgb(57, 5, 82);
+    box-shadow: rgb(97, 35, 126);
+    margin: 30px;
+}
+
+.imagemcard{
+    width: 280px;
+}
+
+.preço{
+    color: aquamarine;
+    font-size: larger;
 }
