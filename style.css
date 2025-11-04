@@ -1,23 +1,23 @@
 
 :root {
     --primary-color: #d460eb; /* Fundo do container principal (Quase Branco) */
-    --secondary-color: #fbfbfc; /* Azul Escuro Marinho - para textos e cabeçalhos */
-    --accent-color: #ff00ff; /* Amarelo Ouro - para destaques, botões e preços */
-    --soft-purple: #9370DB; /* Roxo Suave - para detalhes */
-    --text-color: #333; /* Cinza Escuro para texto comum */
-    --light-text: #fff;
-    --category-bg: #e6e6fa; /* Lavanda (fundo de hover do menu) */
+    --secondary-color: #fcfcff; /* Azul Escuro Marinho - para textos e cabeçalhos */
+    --accent-color: #f7f7f7; /* Amarelo Ouro - para destaques, botões e preços */
+    --soft-purple: #68058f; /* Roxo Suave - para detalhes */
+    --text-color: #eceaea; /* Cinza Escuro para texto comum */
+    --light-text: #eeb3f3;
+    --category-bg: #df8af5fb; /* Lavanda (fundo de hover do menu) */
 }
 
 body {
     margin: 0;
     font-family: Verdana, sans-serif; /* Nova Fonte: Verdana */
-    background-color: #fff;
+    background-color: #bdb9b9;
 }
 
 /* Fundo com as ondas (Azul/Roxo Suave) */
 .background-container {
-    background: linear-gradient(180deg, #6495ED 0%, #9370DB 100%); /* Gradiente Azul Cornflower para Roxo Médio */
+    background: linear-gradient(180deg, #470155 0%, #8705af 100%); /* Gradiente Azul Cornflower para Roxo Médio */
     padding: 30px 0;
     min-height: 100vh;
     display: flex;
@@ -30,7 +30,7 @@ body {
     max-width: 1200px;
     background-color: var(--primary-color);
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px (247, 44, 230, 0.2);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -43,7 +43,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #c867db;
 }
 
 .logo {
@@ -83,7 +83,7 @@ body {
 .search-box {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid #d824fc;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -117,10 +117,10 @@ body {
 
 .categories-menu {
     width: 250px;
-    background-color: #fff;
+    background-color: #570368;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(199, 197, 197, 0.534);
     margin-right: 20px;
     min-height: 500px;
 }
@@ -172,7 +172,7 @@ body {
 }
 
 .categories-menu .arrow {
-    color: #999;
+    color: #161616;
     font-weight: bold;
     padding-right: 15px;
     font-size: 16px;
@@ -192,7 +192,7 @@ body {
 }
 
 .book-card {
-    background-color: #fff;
+    background-color: #f7f5f5;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
@@ -327,22 +327,22 @@ body {
 /* Estilos gerais */
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: #f7f3ec;
+  background-color: #e7aef5;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #111111;
 }
 
 header {
-  background-color: #4a2f0f;
-  color: white;
+  background-color: #430f4a;
+  color: rgb(250, 244, 244);
   text-align: center;
   padding: 20px;
 }
 
 footer {
   text-align: center;
-  background-color: #eee;
+  background-color: #f0e4e4;
   padding: 15px;
   margin-top: 30px;
 }
@@ -356,7 +356,7 @@ footer {
 }
 
 .box-item {
-  background-color: #fff;
+  background-color: #dfabe9;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
@@ -378,7 +378,7 @@ footer {
 .sinopse-button {
   display: inline-block;
   margin-top: 15px;
-  background-color: #4a2f0f;
+  background-color: #a813b6;
   color: white;
   padding: 10px 20px;
   border-radius: 8px;
@@ -387,7 +387,7 @@ footer {
 }
 
 .sinopse-button:hover {
-  background-color: #6a3f1f;
+  background-color: #200420;
 }
 
 /* Página de detalhes */
@@ -399,7 +399,7 @@ footer {
 
 .voltar {
   text-decoration: none;
-  color: #4a2f0f;
+  color: #0c0c0c;
   font-weight: bold;
 }
 
@@ -414,7 +414,7 @@ footer {
 .box-detalhe-img {
   width: 280px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(15, 15, 15, 0.856);
 }
 
 .texto-sinopse {
@@ -450,7 +450,7 @@ footer {
 }
 
 .buy-button {
-  background-color: #4a2f0f;
+  background-color: #780986;
   color: white;
   padding: 12px 25px;
   border-radius: 8px;
@@ -460,7 +460,7 @@ footer {
 }
 
 .buy-button:hover {
-  background-color: #6a3f1f;
+  background-color: #971090;
 }
 
 /* Modal CSS */
@@ -486,15 +486,15 @@ footer {
 .close-button {
   display: inline-block;
   margin-top: 15px;
-  background-color: #4a2f0f;
-  color: white;
+  background-color: #750775;
+  color: rgb(243, 235, 235);
   padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
 }
 
 .close-button:hover {
-  background-color: #6a3f1f;
+  background-color: #a86ca0;
 }
 
 /* Mostra modal quando o checkbox é checado */
