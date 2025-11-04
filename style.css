@@ -390,6 +390,12 @@ footer {
   background-color: #200420;
 }
 
+.preco{
+  color: #470155;
+  font-size: 20px;
+}
+
+
 /* Página de detalhes */
 .details-page {
   padding: 20px;
