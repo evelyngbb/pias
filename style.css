@@ -2,9 +2,9 @@
 :root {
     --primary-color: #d460eb; /* Fundo do container principal */
     --secondary-color: #fbfbfc; /* para textos e cabeçalhos */
-    --accent-color: #ff00ff; /* para destaques, botões e preços */
-    --soft-purple: #9370DB; /* para detalhes */
-    --text-color: #333; /* para texto comum */
+    --accent-color: #ff00ff; 
+    --soft-purple: #9370DB; 
+    --text-color: #333; 
     --light-text: #fff;
     --category-bg: #e6e6fa; /* (fundo de hover do menu) */
 }
@@ -12,7 +12,7 @@
 body {
     margin: 0;
     font-family: Verdana, sans-serif; /* Nova Fonte: Verdana */
-    background-color: #fff;
+    background-color:#fff;
 }
 
 /* Fundo com as ondas (Azul/Roxo Suave) */
@@ -201,9 +201,9 @@ body {
 
 .titulo{
     font-size: 14px;
-    font-weight: bold;
+    font-weight: bold; /* peso da fonte: negrito */
     color: #6495ED;
-    margin: 10px 0;
+    margin: 10px;
 }
 
 .preço{
@@ -215,28 +215,19 @@ body {
 
 .sinopse-button {
   background-color: #9370DB;
-  margin-top: 20px;
   color: purple;
-  text-align: center;;
   border-radius: 15px;
   padding: 10px;
   cursor: pointer; /* o que faz a mao de click quando passa em cima */
   font-size: 14px;
   font-weight: bold; /* deixa a letra mais grossa;negrito */
-  transition: 0.3s;
-
 }
 
-.sinopse-button:hover {
-  background-color: #087bad;
-}
+
 
 a{
     text-decoration: none;
 }
-
-
-
 
 /* --- Estilos do Formulário de Cadastro/Login (login.html) --- */
 
@@ -316,6 +307,10 @@ a{
   padding: 20px;
   max-width: 900px;
   margin: auto;
+  background-color: #e049ee;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(235, 102, 247, 0.856);
+  
 }
 
 .voltar {
@@ -368,7 +363,7 @@ a{
      background-color: #f4f4f4;
     color: #0e0d0d;
     font-size: 20px;
-    background: #d460eb;
+    background: #d460eb;;
     width: 85%;
     margin: 0 auto;
 }
@@ -381,4 +376,10 @@ a{
 
 
 
+
+
+
+.botao-compra{
+    
+}
 
