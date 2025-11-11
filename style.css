@@ -180,6 +180,7 @@ body {
     padding: 15px;
     text-align: center;
     transition: transform 0.3s;
+
 }
 
 .book-card:hover {
@@ -187,7 +188,6 @@ body {
 }
 
 .box-img {
-    width: 100%;
     max-width: 150px; 
     height: auto;
     border-radius: 5px;
@@ -224,6 +224,7 @@ body {
   font-size: 14px;
   font-weight: bold; /* deixa a letra mais grossa;negrito */
   transition: 0.3s;
+
 }
 
 .sinopse-button:hover {
@@ -240,7 +241,7 @@ a{
 /* --- Estilos do Formulário de Cadastro/Login (login.html) --- */
 
 .login-box {
-    background-color: #fff;
+    background-color: #f8ecf4;
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -272,7 +273,7 @@ a{
 .form-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #db10c0;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
@@ -287,7 +288,7 @@ a{
 .login-box p {
     margin-top: 20px;
     font-size: 14px;
-    color: #666;
+    color: #9b0404;
 }
 
 .login-box p a {
@@ -366,6 +367,7 @@ a{
 .sobrenós{
      background-color: #f4f4f4;
     color: #0e0d0d;
+    font-size: 20px;
     background: #d460eb;
     width: 85%;
     margin: 0 auto;
@@ -376,3 +378,7 @@ a{
     display: block;
     margin: 50px auto;
 }
+
+
+
+
