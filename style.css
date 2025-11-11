@@ -296,14 +296,6 @@ a{
     font-weight: bold;
 }
 
-/* Estilo para o conteúdo 'Sobre Nós' */
-.about-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
 .about-content h2 {
     color: var(--secondary-color);
     border-bottom: 2px solid var(--accent-color); /* Linha divisória em Amarelo Ouro */
@@ -371,3 +363,16 @@ a{
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
+.sobrenós{
+     background-color: #f4f4f4;
+    color: #0e0d0d;
+    background: #d460eb;
+    width: 85%;
+    margin: 0 auto;
+}
+.sobrenós img {
+    max-width: 30%;
+    height: auto;
+    display: block;
+    margin: 50px auto;
+}
