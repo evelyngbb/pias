@@ -95,7 +95,6 @@ body {
 }
 
 .search-button {
-    background-color: var(--secondary-color); /* Botão de busca azul escuro */
     color: var(--light-text);
     border: none;
     padding: 8px 15px;
@@ -376,10 +375,4 @@ a{
 
 
 
-
-
-
-.botao-compra{
-    
-}
 
