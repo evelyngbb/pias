@@ -59,6 +59,7 @@ body {
     width: 40px; 
     height: auto;
     margin-right: 10px;
+    border-radius: 5px;
 }
 
 .menu-principal {
@@ -179,7 +180,6 @@ body {
     padding: 15px;
     text-align: center;
     transition: transform 0.3s;
-
 }
 
 .book-card:hover {
@@ -203,13 +203,15 @@ body {
     font-weight: bold; /* peso da fonte: negrito */
     color: #6495ED;
     margin: 10px;
+    text-align: left;
 }
 
 .preço{
     font-size: 16px;
     color: #9370DB;
     font-weight: bold;
-    margin: 5px 0 15px 0;
+    margin: 10px;
+    text-align: left;
 }
 
 .sinopse-button {
@@ -221,8 +223,6 @@ body {
   font-size: 14px;
   font-weight: bold; /* deixa a letra mais grossa;negrito */
 }
-
-
 
 a{
     text-decoration: none;
@@ -367,10 +367,11 @@ a{
     margin: 0 auto;
 }
 .sobrenós img {
-    max-width: 30%;
+    max-width: 25%;
     height: auto;
     display: block;
     margin: 50px auto;
+    border-radius: 10px;
 }
 
 
