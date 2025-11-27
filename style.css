@@ -375,5 +375,9 @@ a{
 }
 
 
+.produtos{
+    display: flex;
+}
+
 
 
