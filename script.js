@@ -1,64 +1,218 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Pega o formulário de busca e o input pelo ID
-    const formBusca = document.getElementById('form-busca');
-    const inputBusca = document.getElementById('input-busca');
 
-    if (formBusca) {
-        formBusca.addEventListener('submit', function(e) {
-            // Previne o envio padrão do formulário (que recarregaria a página)
-            e.preventDefault(); 
+/* =========================================
+   ZOOTOPIA PET - SCRIPT PRINCIPAL
+   ========================================= */
 
-            // Pega o termo digitado e coloca em minúsculas
-            const termoBusca = inputBusca.value.toLowerCase().trim(); // AQUI!
-            
-            if (termoBusca === '') return; // Se vazio, não faz nada
+// 1. CONFIGURAÇÕES INICIAIS
 
-            // --- Lógica de Redirecionamento de Categoria ---
-            // Verifica se o termo digitado é uma categoria válida.
-            // O usuário será redirecionado se digitar algo que contenha 'fantasia', 'romance' ou 'suspense'.
-            if (termoBusca.includes('fantasia')) {
-                window.location.href = 'fantasia.html';
-                return; 
-            }
-            if (termoBusca.includes('romance')) {
-                window.location.href = 'romance.html';
-                return;
-            }
-            if (termoBusca.includes('suspense')) {
-                window.location.href = 'suspense.html';
-                return;
-            }
+let fichas = [];
 
-            // --- Lógica de Filtragem de Livros na Página Atual ---
-            
-            // Só executa a filtragem se o usuário NÃO foi redirecionado.
-            const cardsLivro = document.querySelectorAll('book-card'); // AQUI!
-            let resultadosEncontrados = false;
-            
-            cardsLivro.forEach(card => {
-                // Pega o título do livro dentro do card (tag <h3>)
-                const titulo = card.querySelector('h3').textContent.toLowerCase();
-                
-                // Verifica se o título do livro contém o termo de busca
-                if (titulo.includes(termoBusca)) {
-                    card.style.display = 'block'; // Mostra o card
-                    resultadosEncontrados = true;
-                } else {
-                    card.style.display = 'none'; // Esconde o card
-                }
-            });
+const chaveStorage = "zootopia_fichas";
 
-            // Se for executada a filtragem e não achar nada
-            if (cardsLivro.length > 0 && !resultadosEncontrados) {
-                alert(`Nenhum livro encontrado com o termo "${termoBusca}" nesta categoria.`);
-                
-                // Opcional: Mostrar todos os livros novamente após o alerta
-                cardsLivro.forEach(card => card.style.display = 'block');
-            }
-            
-            // Limpa o campo de busca
-            inputBusca.value = '';
+const formulario = document.getElementById("form-ficha");
+const listaFichas = document.getElementById("lista-fichas");
+const contadorImpacto = document.getElementById("contador-impacto");
 
-        });
+const pixButton = document.getElementById("pix-button");
+const pixMessage = document.getElementById("pix-message");
+
+
+// 2. DATA ATUAL
+
+function pegarDataHoje() {
+    const data = new Date();
+
+    return `${String(data.getDate()).padStart(2, "0")}/${String(data.getMonth() + 1).padStart(2, "0")}/${data.getFullYear()}`;
+}
+
+
+// 3. CARREGAR AÇÕES SALVAS
+
+function carregarFichas() {
+    try {
+        const guardado = localStorage.getItem(chaveStorage);
+
+        if (guardado) {
+            const dados = JSON.parse(guardado);
+            fichas = Array.isArray(dados) ? dados : [];
+        }
+    } catch (erro) {
+        console.error("Erro ao carregar ações:", erro);
+        fichas = [];
     }
+
+    mostrarFichas();
+}
+
+
+// 4. SALVAR AÇÕES
+
+function salvarFichas() {
+    try {
+        localStorage.setItem(chaveStorage, JSON.stringify(fichas));
+        return true;
+    } catch (erro) {
+        console.error("Erro ao salvar ações:", erro);
+        alert("Não foi possível salvar os dados.");
+        return false;
+    }
+}
+
+
+// 5. MOSTRAR AÇÕES NO MURAL
+
+function mostrarFichas() {
+    listaFichas.innerHTML = "";
+
+    contadorImpacto.textContent =
+        `Ações cadastradas: ${fichas.length}`;
+
+    if (fichas.length === 0) {
+        const mensagem = document.createElement("p");
+
+        mensagem.className = "sem-fichas";
+        mensagem.textContent =
+            "Nenhuma ação cadastrada ainda. Seja o primeiro a registrar uma ação!";
+
+        listaFichas.appendChild(mensagem);
+        return;
+    }
+
+    fichas.forEach((ficha, indice) => {
+        const card = document.createElement("article");
+        card.className = "ficha";
+
+        // Botão de excluir
+        const excluir = document.createElement("button");
+
+        excluir.className = "btn-excluir";
+        excluir.type = "button";
+        excluir.title = "Excluir esta ação";
+        excluir.setAttribute("aria-label", "Excluir ação");
+        excluir.textContent = "×";
+
+        excluir.addEventListener("click", () => {
+            excluirFicha(indice);
+        });
+
+        // Título
+        const titulo = document.createElement("h3");
+        titulo.textContent = ficha.titulo;
+
+        // Categoria
+        const etiqueta = document.createElement("span");
+        etiqueta.className = "etiqueta";
+        etiqueta.textContent = ficha.categoria;
+
+        // Local
+        const local = document.createElement("p");
+        local.className = "info";
+        local.textContent = `📍 Local: ${ficha.local}`;
+
+        // Participantes
+        const pessoas = document.createElement("p");
+        pessoas.className = "info";
+        pessoas.textContent =
+            `👥 Participantes: ${ficha.pessoas} pessoa(s)`;
+
+        // Data
+        const data = document.createElement("p");
+        data.className = "info";
+        data.textContent = `📅 Data: ${ficha.data}`;
+
+        // Descrição
+        const descricao = document.createElement("p");
+        descricao.className = "descricao";
+        descricao.textContent = ficha.descricao;
+
+        // Montar cartão
+        card.append(
+            excluir,
+            titulo,
+            etiqueta,
+            local,
+            pessoas,
+            data,
+            descricao
+        );
+
+        listaFichas.appendChild(card);
+    });
+}
+
+
+// 6. EXCLUIR AÇÃO
+
+function excluirFicha(indice) {
+    const confirmar = window.confirm(
+        "Tem certeza que deseja excluir esta ação?"
+    );
+
+    if (!confirmar) return;
+
+    const copiaAnterior = [...fichas];
+
+    fichas.splice(indice, 1);
+
+    if (!salvarFichas()) {
+        fichas = copiaAnterior;
+    }
+
+    mostrarFichas();
+}
+
+
+// 7. CADASTRAR NOVA AÇÃO
+
+formulario.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+
+    if (!formulario.reportValidity()) return;
+
+    const dados = new FormData(formulario);
+
+    const novaFicha = {
+        titulo: String(dados.get("titulo")).trim(),
+        categoria: String(dados.get("categoria")).trim(),
+        local: String(dados.get("local")).trim(),
+        pessoas: String(dados.get("pessoas")).trim(),
+        descricao: String(dados.get("descricao")).trim(),
+        data: pegarDataHoje()
+    };
+
+    if (
+        !novaFicha.titulo ||
+        !novaFicha.categoria ||
+        !novaFicha.local ||
+        !novaFicha.descricao
+    ) {
+        alert("Preencha todos os campos antes de cadastrar.");
+        return;
+    }
+
+    fichas.unshift(novaFicha);
+
+    if (!salvarFichas()) {
+        fichas.shift();
+        return;
+    }
+
+    mostrarFichas();
+
+    formulario.reset();
+
+    alert("Ação cadastrada com sucesso! Ela já aparece no mural.");
 });
+
+
+// 8. BOTÃO DE DOAÇÃO PIX
+
+pixButton.addEventListener("click", () => {
+    pixMessage.textContent =
+        "PIX disponível em breve. Obrigado por querer ajudar! 💜";
+});
+
+
+// 9. INICIAR SITE
+
+carregarFichas();
